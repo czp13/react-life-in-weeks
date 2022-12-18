@@ -58,20 +58,23 @@ const App = () => {
       )}
       {[...Array(Math.ceil(weeksInLife / 52)).keys()].map((yearNumber) => (
         <Row key={yearNumber}>
-          <Col>
-            <span>{yearNumber}</span>
-          </Col>
           {[...Array(52).keys()].map((weekNumber) => (
-            <Col key={weekNumber}>
+            <Col key={weekNumber} style={{ width: '1rem' }}>
               <div
                 style={{
-                  width: '1.5rem',
-                  height: '1.5rem',
+                  width: '0.75rem',
+                  height: '0.75rem',
                   backgroundColor: '#ddd',
                   border: '1px solid #ccc',
                   margin: '0.2rem',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  marginTop: '-0.2rem',
                 }}
-              />
+              >
+                {yearNumber * 52 + weekNumber + 1 <= weeksInLife ? 'x' : ''}
+              </div>
             </Col>
           ))}
         </Row>
