@@ -3,7 +3,6 @@ import {
   Container,
   Row,
   Col,
-  Card,
   Button,
   Form,
   FormControl,
@@ -57,15 +56,27 @@ const App = () => {
           </Col>
         </Row>
       )}
-      <Row>
-        {[...Array(weeksInLife).keys()].map((weekNumber) => (
-          <Col key={weekNumber} xs={1}>
-            <Card>
-              <Card.Body>Week {weekNumber + 1}</Card.Body>
-            </Card>
+      {[...Array(Math.ceil(weeksInLife / 52)).keys()].map((yearNumber) => (
+        <Row key={yearNumber}>
+          <Col>
+            <span>{yearNumber}</span>
           </Col>
-        ))}
-      </Row>
+          {[...Array(52).keys()].map((weekNumber) => (
+            <Col key={weekNumber}>
+              <div
+                style={{
+                  width: '1.5rem',
+                  height: '1.5rem',
+                  backgroundColor: '#ddd',
+                  border: '1px solid #ccc',
+                  margin: '0.2rem',
+                }}
+              />
+            </Col>
+          ))}
+        </Row>
+      ))}
+
     </Container>
   );
 };
