@@ -109,14 +109,14 @@ const App = () => {
               onChange={handleBirthDateChange}
               placeholder="Enter your birth date"
             />
-            <Button variant="primary" type="submit" style={{ marginTop: '20px' }}>
+            <Button variant="primary" type="submit" style={{ marginTop: '20px', marginBottom: '20px' }}>
               Calculate
             </Button>
           </Form>
         </Col>
       </Row>
       {weeksInLife > 0 && (
-        <Row style={{ marginTop: '20px', marginBottom: '20px'}}>
+        <Row style={{ marginBottom: '20px'}}>
           <Col>
             <h2>You have lived for {weeksInLife} weeks</h2>
           </Col>
